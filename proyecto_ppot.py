@@ -29,9 +29,12 @@ import random
 #ventana
 ventana = tk.Tk()
 ventana.title("Piedra, Papel o Tijeras :)")
-ventana.geometry("350x350")
+ventana.geometry("350x650")
 ventana.config(bg="#A1A1A1")
 
+# Contadores globales
+puntuacion_jugador = 0
+puntuacion_pc = 0
 
 #func.pricipal
 def jugar(eleccion_jugador):
@@ -50,9 +53,14 @@ def jugar(eleccion_jugador):
         color="#197003"
     else:
         resultado = "Perdiste :("
-        color="#C90303"
-    label_resultado.config(text=resultado, fg=color)
+         color = "#C90303"
+        puntuacion_pc += 1
+        ganador = "Computadora"
 
+    label_resultado.config(text=resultado, fg=color)
+    actualizar_marcador()
+
+    agregar_historial(eleccion_jugador, eleccion_pc, ganador)
 
 
 #etiquetas
@@ -75,6 +83,18 @@ label_pc.pack(pady=10)
 
 label_resultado = tk.Label(ventana, text="", font=("Arial", 14, "bold"), bg="#A1A1A1")
 label_resultado.pack(pady=10)
+
+# historial
+label_historial = tk.Label(ventana, text="Historial de partidas:", font=("Arial", 12, "bold"), bg="#A1A1A1")
+label_historial.pack(pady=5)
+
+historial = tk.Listbox(ventana, width=45, height=10)
+historial.pack(pady=5)
+
+# botón reiniciar
+boton_reiniciar = tk.Button(ventana, text="🔄 Reiniciar juego", font=("Arial", 12, "bold"), bg="black", fg="white", command=reiniciar)
+boton_reiniciar.pack(pady=10)
+
 
 ventana.mainloop()
 
