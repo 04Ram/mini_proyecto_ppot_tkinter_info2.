@@ -29,7 +29,7 @@ def jugar(eleccion_jugador):
         color="#197003"
     else:
         resultado = "Perdiste :("
-         color = "#C90303"
+        color = "#C90303"
         puntuacion_pc += 1
         ganador = "Computadora"
 
@@ -68,7 +68,8 @@ historial = tk.Listbox(ventana, width=45, height=10)
 historial.pack(pady=5)
 
 # botón reiniciar
-boton_reiniciar = tk.Button(ventana, text="🔄 Reiniciar juego", font=("Arial", 12, "bold"), bg="black", fg="white", command=reiniciar)
+boton_reiniciar = tk.Button(ventana, text="🔄 Reiniciar juego", font=("Arial", 12, "bold"),
+                            bg="black", fg="white", command=reiniciar)
 boton_reiniciar.pack(pady=10)
 
 
